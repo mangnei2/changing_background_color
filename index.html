@@ -12,24 +12,21 @@
     <div>
     <h1>Change color via text</h1>
 
-    <input type="text" placeholder="input text" id="colorInputText">
-
-    <input type="button" id="colorButton" value="Click me" onclick="changeColor()">
+    <form id="colorInputText">
+    <input type="text" name="cssvalue" placeholder="input text">
+    <input type="submit" value="submit">
+    </form>
     </div>
 
     <script>
-        function changeColor() {
-            let color = document.getElementById('colorInputText').value;
-            document.body.style.backgroundColor = color;
+    document.getElementById('colorInputText').addEventListener('submit', changeColor);
+    function changeColor(e) {
+        e.preventDefault();
+        document.body.style.backgroundColor = e.target.cssvalue.value;
     }
-         const btn= document.getElementById('colorButton');
 
-         colorInputText.addEventListener("keyup", e => {
-         e.preventDefault();
-         if(e.keyCode === 13){
-         btn.click();
-    }
-    });
     </script>
+
+    
 </body>
 </html>
